@@ -11,7 +11,7 @@ env:
         - SUBLIME_TEXT_VERSION="3"
 
 install:
-    - chmod 755 sbin/travis-tool.sh
+    - chmod 755 sbin/travis.sh
     - sbin/travis.sh bootstrap $SUBLIME_TEXT_VERSION $PACKAGE
 
 before_script:
