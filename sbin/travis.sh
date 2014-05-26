@@ -3,9 +3,6 @@
 set -e
 
 Bootstrap() {
-    echo SUBLIME_TEXT_VERSION $SUBLIME_TEXT_VERSION
-    SUBLIME_TEXT_VERSION=$1
-    PACKAGE="$2"
     STP=$HOME/.config/sublime-text-$SUBLIME_TEXT_VERSION/Packages
     if [ -z $(which subl) ]; then
         if [ $SUBLIME_TEXT_VERSION -eq 2 ]; then
@@ -40,8 +37,6 @@ Bootstrap() {
 }
 
 RunTests() {
-    SUBLIME_TEXT_VERSION=$1
-    PACKAGE="$2"
     STP=$HOME/.config/sublime-text-$SUBLIME_TEXT_VERSION/Packages
     UT=$STP/UnitTesting
     python $UT/sbin/run.py $PACKAGE

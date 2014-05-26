@@ -12,14 +12,14 @@ env:
 
 install:
     - chmod 755 sbin/travis.sh
-    - sbin/travis.sh bootstrap $SUBLIME_TEXT_VERSION $PACKAGE
+    - sbin/travis.sh bootstrap
 
 before_script:
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
 
 script:
-    - sbin/travis.sh run_tests $SUBLIME_TEXT_VERSION $PACKAGE
+    - sbin/travis.sh run_tests
 
 notifications:
     email: false
