@@ -1,4 +1,6 @@
-#! /bin/bash
+#!/bin/bash
+
+set -e
 
 Bootstrap() {
     SUBLIME_TEXT_VERSION=$1
@@ -36,7 +38,7 @@ Bootstrap() {
     fi
 }
 
-RunTests(){
+RunTests() {
     SUBLIME_TEXT_VERSION=$1
     PACKAGE="$2"
     STP=$HOME/.config/sublime-text-$SUBLIME_TEXT_VERSION/Packages
