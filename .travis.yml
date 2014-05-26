@@ -18,7 +18,7 @@ before_script:
     - sh -e /etc/init.d/xvfb start
 
 script:
-    - sh -e sbin/travis.sh run_test $SUBLIME_TEXT_VERSION $PACKAGE
+    - sh -e sbin/travis.sh run_tests $SUBLIME_TEXT_VERSION $PACKAGE
 
 notifications:
     email: false
