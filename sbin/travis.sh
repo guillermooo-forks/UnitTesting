@@ -3,9 +3,10 @@
 set -e
 
 Bootstrap() {
-    export SUBLIME_TEXT_VERSION=$1
-    export PACKAGE="$2"
-    export STP=$HOME/.config/sublime-text-$SUBLIME_TEXT_VERSION/Packages
+    echo SUBLIME_TEXT_VERSION $SUBLIME_TEXT_VERSION
+    SUBLIME_TEXT_VERSION=$1
+    PACKAGE="$2"
+    STP=$HOME/.config/sublime-text-$SUBLIME_TEXT_VERSION/Packages
     if [ -z $(which subl) ]; then
         if [ $SUBLIME_TEXT_VERSION -eq 2 ]; then
             echo installing sublime 2
@@ -39,10 +40,10 @@ Bootstrap() {
 }
 
 RunTests() {
-    export SUBLIME_TEXT_VERSION=$1
-    export PACKAGE="$2"
-    export STP=$HOME/.config/sublime-text-$SUBLIME_TEXT_VERSION/Packages
-    export UT=$STP/UnitTesting
+    SUBLIME_TEXT_VERSION=$1
+    PACKAGE="$2"
+    STP=$HOME/.config/sublime-text-$SUBLIME_TEXT_VERSION/Packages
+    UT=$STP/UnitTesting
     python $UT/sbin/run.py $PACKAGE
 }
 
