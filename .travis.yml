@@ -11,15 +11,14 @@ env:
         - SUBLIME_TEXT_VERSION="3"
 
 install:
-    - sh -e sbin/travis.sh $SUBLIME_TEXT_VERSION $PACKAGE
+    - sh -e sbin/travis.sh bootstrap $SUBLIME_TEXT_VERSION $PACKAGE
 
 before_script:
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
-    - UNITTESTING=$HOME/.config/sublime-text-$SUBLIME_TEXT_VERSION/Packages/UnitTesting
 
 script:
-    - python $UNITTESTING/sbin/run.py $PACKAGE
+    - sh -e sbin/travis.sh run_test $SUBLIME_TEXT_VERSION $PACKAGE
 
 notifications:
     email: false
