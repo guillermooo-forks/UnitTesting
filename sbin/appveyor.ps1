@@ -45,7 +45,7 @@ function Bootstrap {
 }
 
 function RunTests {
-    invoke-expression "C:\st\Data\Packages\UnitTesting\sbin\run.ps1 $remainingArgs `"${env:PACKAGE}`" -verbose"
+    & "C:\st\Data\Packages\UnitTesting\sbin\run.ps1" "${env:PACKAGE}" -verbose
 }
 
 switch ($command){
