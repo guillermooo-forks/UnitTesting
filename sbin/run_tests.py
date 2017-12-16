@@ -97,7 +97,7 @@ subprocess.Popen(["subl"])
 
 # wait until the file has something
 print("OUTFILE", outfile)
-print("Wait for Sublime Text response")
+# print("Wait for Sublime Text response")
 
 sys.exit(100)
 
