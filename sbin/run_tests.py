@@ -56,8 +56,6 @@ if os.path.exists(outfile):
 if os.path.exists(coveragefile):
     os.unlink(coveragefile)
 
-sys.exit(100)
-
 # add schedule
 jpath_dir = os.path.join(packages_path, "User", "UnitTesting")
 jpath = os.path.join(jpath_dir, "schedule.json")
@@ -93,6 +91,8 @@ if os.path.exists(schedule_target):
 
 if not os.path.exists(schedule_target):
     shutil.copyfile(schedule_source, schedule_target)
+
+sys.exit(100)
 
 # launch sublime text
 subprocess.Popen(["subl"])
