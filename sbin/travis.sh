@@ -44,14 +44,15 @@ Bootstrap() {
                 UNITTESTING_TAG="0.10.6"
             elif [ $SUBLIME_TEXT_VERSION -eq 3 ]; then
                 # latest tag
-                UNITTESTING_TAG=$(git ls-remote --tags "$UT_URL" |
-                      sed 's|.*/\(.*\)$|\1|' | grep -v '\^' |
-                      sort -t. -k1,1nr -k2,2nr -k3,3nr | head -n1)
+                # UNITTESTING_TAG=$(git ls-remote --tags "$UT_URL" |
+                #       sed 's|.*/\(.*\)$|\1|' | grep -v '\^' |
+                #       sort -t. -k1,1nr -k2,2nr -k3,3nr | head -n1)
+                UNITTESTING_TAG="vs" # FIXME: (guillermooo)TEMPORARY
             fi
         fi
 
         echo "download UnitTesting tag: $UNITTESTING_TAG"
-        git clone --quiet --depth 1 --branch $UNITTESTING_TAG "$UT_URL" "$UT_PATH"
+        git clone --quiet --depth 1 "$UT_URL" "$UT_PATH"
         git -C "$UT_PATH" rev-parse HEAD
         echo
     fi
