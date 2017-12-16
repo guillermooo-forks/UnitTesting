@@ -52,7 +52,7 @@ Bootstrap() {
         fi
 
         echo "download UnitTesting tag: $UNITTESTING_TAG"
-        git clone --quiet --depth 1 "$UT_URL" "$UT_PATH"
+        git clone --quiet --depth 1 --branch "vs" "$UT_URL" "$UT_PATH"
         git -C "$UT_PATH" rev-parse HEAD
         echo
     fi
