@@ -24,6 +24,9 @@ class UnitTestingCommand(sublime_plugin.ApplicationCommand, UnitTestingMixin):
         settings = self.load_unittesting_settings(package, pattern=pattern, **kargs)
         stream = self.load_stream(package, settings["output"])
 
+        stream.write("some stuff\n")
+        return
+
         if settings["async"]:
             threading.Thread(target=lambda: self.unit_testing(stream, package, settings)).start()
         else:
