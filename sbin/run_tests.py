@@ -99,6 +99,10 @@ subprocess.Popen(["subl"])
 print("OUTFILE", outfile)
 # print("Wait for Sublime Text response")
 
+time.sleep(2)
+subprocess.Popen(['pskill', '[Ss]ubl'])
+time.sleep(2)
+
 sys.exit(100)
 
 startt = time.time()
