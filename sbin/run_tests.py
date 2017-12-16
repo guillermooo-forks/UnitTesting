@@ -13,6 +13,20 @@ import shutil
 # cd your_package
 # python path/to/run_tests.py PACKAGE
 
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("running correct runner")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
 parser = optparse.OptionParser()
 parser.add_option('--syntax-test', action="store_true", default=False)
 parser.add_option('--color-scheme-test', action="store_true", default=False)
@@ -82,8 +96,8 @@ if not os.path.exists(schedule_target):
 subprocess.Popen(["subl"])
 
 # wait until the file has something
-print("Wait for Sublime Text response")
 print("OUTFILE", outfile)
+print("Wait for Sublime Text response")
 startt = time.time()
 while (not os.path.exists(outfile) or os.stat(outfile).st_size == 0):
     sys.stdout.write('.')
