@@ -95,6 +95,9 @@ if not os.path.exists(schedule_target):
 # launch sublime text
 subprocess.Popen(["subl"])
 
+with open(outfile, 'w'):
+    pass
+
 # wait until the file has something
 print("OUTFILE", outfile)
 print("Wait for Sublime Text response")
