@@ -133,11 +133,11 @@ InstallKeypress() {
 RunTests() {
     echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     echo "we are running my tets"
     echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-    cat "$STP/UnitTesting/sbin/run_tests.py"
-    exit
+    echo "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
     if [ "$TRAVIS_OS_NAME" = "linux" ] && [ -z $DISPLAY ]; then
         export DISPLAY=:99.0
@@ -148,8 +148,10 @@ RunTests() {
     fi
 
     if [ -z "$1" ]; then
+        echo "RUNNING 1 $PACKAGE"
         python "$STP/UnitTesting/sbin/run_tests.py" "$PACKAGE"
     else
+        echo "RUNNING 2 $@ $PACKAGE"
         python "$STP/UnitTesting/sbin/run_tests.py" "$@" "$PACKAGE"
     fi
 
