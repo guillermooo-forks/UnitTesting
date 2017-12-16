@@ -98,7 +98,6 @@ subprocess.Popen(["subl"])
 # wait until the file has something
 print("OUTFILE", outfile)
 print("Wait for Sublime Text response")
-time.sleep(5)
 
 # startt = time.time()
 # while (not os.path.exists(outfile) or os.stat(outfile).st_size == 0):
