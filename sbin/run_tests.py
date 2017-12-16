@@ -110,6 +110,10 @@ while (not os.path.exists(outfile) or os.stat(outfile).st_size == 0):
     time.sleep(1)
 print("")
 
+
+print("WELL WELL WELL WELL WELL WELL")
+sys.exit(1)
+
 # todo: use notification instead of polling
 print("Start to read output...")
 with open(outfile, 'r') as f:
