@@ -95,55 +95,54 @@ if not os.path.exists(schedule_target):
 # launch sublime text
 subprocess.Popen(["subl"])
 
-with open(outfile, 'w'):
-    pass
-
 # wait until the file has something
 print("OUTFILE", outfile)
 print("Wait for Sublime Text response")
-startt = time.time()
-while (not os.path.exists(outfile) or os.stat(outfile).st_size == 0):
-    sys.stdout.write('.')
-    sys.stdout.flush()
-    if time.time() - startt > 10:
-        print("Timeout: Sublime Text is not responding")
-        if os.path.exists(schedule_target):
-            os.unlink(schedule_target)
-        sys.exit(1)
-    time.sleep(1)
-print("")
+time.sleep(5)
+
+# startt = time.time()
+# while (not os.path.exists(outfile) or os.stat(outfile).st_size == 0):
+#     sys.stdout.write('.')
+#     sys.stdout.flush()
+#     if time.time() - startt > 10:
+#         print("Timeout: Sublime Text is not responding")
+#         if os.path.exists(schedule_target):
+#             os.unlink(schedule_target)
+#         sys.exit(1)
+#     time.sleep(1)
+# print("")
 
 
 print("WELL WELL WELL WELL WELL WELL")
 sys.exit(1)
 
 # todo: use notification instead of polling
-print("Start to read output...")
-with open(outfile, 'r') as f:
-    while True:
-        where = f.tell()
-        result = f.read()
-        sys.stdout.write(result)
-        m = re.search("^(OK|FAILED|ERROR)\\b", result, re.MULTILINE)
-        if m:
-            success = m.group(0) == "OK"
-        # break when OK, Failed or error
-        if re.search("^UnitTesting: Done\\.$", result, re.MULTILINE):
-            break
-        elif not result:
-            f.seek(where)
-        time.sleep(0.2)
+# print("Start to read output...")
+# with open(outfile, 'r') as f:
+#     while True:
+#         where = f.tell()
+#         result = f.read()
+#         sys.stdout.write(result)
+#         m = re.search("^(OK|FAILED|ERROR)\\b", result, re.MULTILINE)
+#         if m:
+#             success = m.group(0) == "OK"
+#         # break when OK, Failed or error
+#         if re.search("^UnitTesting: Done\\.$", result, re.MULTILINE):
+#             break
+#         elif not result:
+#             f.seek(where)
+#         time.sleep(0.2)
 
-# restore .coverage if it exists, needed for coveralls
-if os.path.exists(coveragefile):
-    with open(coveragefile, "r") as f:
-        txt = f.read()
-    txt = txt.replace(os.path.realpath(os.path.join(packages_path, package)), os.getcwd())
-    with open(os.path.join(os.getcwd(), ".coverage"), "w") as f:
-        f.write(txt)
+# # restore .coverage if it exists, needed for coveralls
+# if os.path.exists(coveragefile):
+#     with open(coveragefile, "r") as f:
+#         txt = f.read()
+#     txt = txt.replace(os.path.realpath(os.path.join(packages_path, package)), os.getcwd())
+#     with open(os.path.join(os.getcwd(), ".coverage"), "w") as f:
+#         f.write(txt)
 
-if os.path.exists(schedule_target):
-    os.unlink(schedule_target)
+# if os.path.exists(schedule_target):
+#     os.unlink(schedule_target)
 
-if not success:
-    sys.exit(1)
+# if not success:
+#     sys.exit(1)
