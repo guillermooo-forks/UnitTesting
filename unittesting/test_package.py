@@ -60,6 +60,9 @@ class UnitTestingCommand(sublime_plugin.ApplicationCommand, UnitTestingMixin):
                 testRunner = DeferringTextTestRunner(stream, verbosity=settings["verbosity"])
             else:
                 stream.write("I am doing some stuff here...\n".encode('utf8'))
+                stream.write("I am doing some stuff here...\n".encode('utf8'))
+                stream.write("I am doing some stuff here...\n".encode('utf8'))
+                stream.write("I am doing some stuff here...\n".encode('utf8'))
                 return
                 self.verify_testsuite(tests)
                 testRunner = TextTestRunner(stream, verbosity=settings["verbosity"])

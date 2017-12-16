@@ -83,11 +83,12 @@ subprocess.Popen(["subl"])
 
 # wait until the file has something
 print("Wait for Sublime Text response")
+print("OUTFILE", outfile)
 startt = time.time()
 while (not os.path.exists(outfile) or os.stat(outfile).st_size == 0):
     sys.stdout.write('.')
     sys.stdout.flush()
-    if time.time() - startt > 60:
+    if time.time() - startt > 10:
         print("Timeout: Sublime Text is not responding")
         if os.path.exists(schedule_target):
             os.unlink(schedule_target)
