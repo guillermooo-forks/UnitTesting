@@ -59,9 +59,9 @@ class UnitTestingCommand(sublime_plugin.ApplicationCommand, UnitTestingMixin):
             if settings["deferred"]:
                 testRunner = DeferringTextTestRunner(stream, verbosity=settings["verbosity"])
             else:
+                stream.write("I am doing some stuff here...\n".encode('utf8'))
                 return
                 self.verify_testsuite(tests)
-                stream.write("I am doing some stuff here...\n".encode('utf8'))
                 testRunner = TextTestRunner(stream, verbosity=settings["verbosity"])
 
             testRunner.run(tests)
