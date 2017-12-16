@@ -100,7 +100,8 @@ print("OUTFILE", outfile)
 # print("Wait for Sublime Text response")
 
 time.sleep(2)
-subprocess.Popen(['pskill', '[Ss]ubl'], shell=True)
+subprocess.Popen(['pskill', 'subl'], shell=True)
+subprocess.Popen(['killall', 'plugin_host'], shell=True)
 time.sleep(2)
 
 sys.exit(100)
